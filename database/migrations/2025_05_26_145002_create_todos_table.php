@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('todos', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid')->nullable();;
+            $table->id()->autoIncrement();
+            $table->uuid('uuid');
             $table->longText('title');
-            $table->boolean('completed_at')->nullable();
-            $table->dateTime('currently_working_on')->default(false);
-            
+            $table->dateTime('completed_at')->nullable();
+            $table->boolean('currently_working_on')->default(false);
             $table->timestamps();
         });
     }
